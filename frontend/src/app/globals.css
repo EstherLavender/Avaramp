@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0c0c0e;
+    color: #f2f2f4;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(124, 111, 247, 0.25);
+    color: #f2f2f4;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #26262a; border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: #36363c; }
+}
+
+@layer components {
+  .skeleton {
+    background: linear-gradient(90deg, #1a1a1d 25%, #22222a 50%, #1a1a1d 75%);
+    background-size: 600px 100%;
+    @apply animate-shimmer rounded-lg;
+  }
+
+  .input {
+    @apply w-full bg-surface border border-border rounded-lg px-3.5 py-2.5
+           text-primary text-sm placeholder:text-muted
+           focus:outline-none focus:border-indigo-border focus:ring-2 focus:ring-indigo-dim
+           transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .mask-fade {
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+
+  .gradient-brand {
+    background: linear-gradient(135deg, #7c6ff7 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
